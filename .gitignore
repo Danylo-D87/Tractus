@@ -1,3 +1,37 @@
 .idea
 .venv
 **__pycache__
+
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environment
+venv/
+.env/
+.envrc
+
+# Django
+*.sqlite3
+db.sqlite3
+*.log
+
+# IDE (PyCharm)
+.idea/
+*.iml
+
+# OS файли
+.DS_Store
+Thumbs.db
+
+# Мігрування
+*.pot
+*.mo
+
+# Файли налаштувань середовища
+*.env
+*.secret
