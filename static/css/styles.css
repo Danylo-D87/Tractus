@@ -1,764 +1,844 @@
 /* Базові стилі */
 body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: #f9fafb;
-  color: #1a202c;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fafb;
+    color: #1a202c;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* Header */
 .header {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 1rem 0;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 1rem 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .logo a {
-  font-weight: 600;
-  font-size: 1.5rem;
-  color: #4c51bf;
-  text-decoration: none;
-  transition: color 0.3s ease;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #4c51bf;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .logo a:hover {
-  color: #3c366b;
+    color: #3c366b;
 }
 
 .nav {
-  display: flex;
-  gap: 1.25rem;
-  align-items: center;
-  font-weight: 500;
-  font-size: 0.95rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    font-weight: 500;
+    font-size: 0.95rem;
 }
 
 .nav-link {
-  color: #4a5568;
-  text-decoration: none;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  transition: background-color 0.2s ease, color 0.2s ease;
-  cursor: pointer;
+    color: #4a5568;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    cursor: pointer;
 }
 
 .nav-link:hover:not(.disabled) {
-  background-color: #e0e7ff;
-  color: #434190;
+    background-color: #e0e7ff;
+    color: #434190;
 }
 
 .nav-link.disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
 /* Кнопка у формі виходу */
 .logout-form {
-  margin: 0;
+    margin: 0;
 }
 
 .btn-link {
-  background: none;
-  border: none;
-  padding: 0;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
-  text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .btn-link:hover {
-  color: #434190;
-  background-color: transparent;
+    color: #434190;
+    background-color: transparent;
 }
 
 /* Контент */
 .content-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
 /* Кнопка Адмін */
 .admin-fab {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #4c51bf;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 9999px;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(76,81,191,0.4);
-  transition: background-color 0.3s ease;
-  user-select: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4c51bf;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 9999px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(76, 81, 191, 0.4);
+    transition: background-color 0.3s ease;
+    user-select: none;
 }
 
 .admin-fab:hover {
-  background-color: #3c366b;
+    background-color: #3c366b;
 }
 
 /* Мобільна адаптація */
 @media (max-width: 600px) {
-  .container {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  .nav {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .content-container {
-    padding: 0 0.5rem;
-  }
+    .container {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .content-container {
+        padding: 0 0.5rem;
+    }
 }
 
 /* Заголовки сторінок */
 .page-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #2d3748;
-  border-bottom: 2px solid #4c51bf;
-  padding-bottom: 0.25rem;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #2d3748;
+    border-bottom: 2px solid #4c51bf;
+    padding-bottom: 0.25rem;
 }
 
 /* Список категорій */
 .category-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .category-list li {
 }
 
 .category-link {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: #e0e7ff;
-  color: #434190;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #e0e7ff;
+    color: #434190;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
 }
 
 .category-link:hover {
-  background-color: #c3cafe;
+    background-color: #c3cafe;
 }
 
 /* Фільтр категорій (у post_list) */
 .category-filter {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 2rem;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .category-filter li {
 }
 
 .category-filter a {
-  text-decoration: none;
-  color: #4a5568;
-  padding: 0.35rem 0.75rem;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  display: inline-block;
+    text-decoration: none;
+    color: #4a5568;
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
 }
 
 .category-filter a:hover {
-  background-color: #e0e7ff;
-  color: #434190;
+    background-color: #e0e7ff;
+    color: #434190;
 }
 
 .category-filter a.active {
-  background-color: #4c51bf;
-  color: white;
-  cursor: default;
-  pointer-events: none;
+    background-color: #4c51bf;
+    color: white;
+    cursor: default;
+    pointer-events: none;
 }
 
 /* Список постів */
 .post-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .post-item {
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .post-title {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.5rem;
-  color: #2d3748;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    color: #2d3748;
 }
 
 .post-excerpt {
-  color: #4a5568;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
 }
 
 .read-more {
-  color: #4c51bf;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: color 0.3s ease;
+    color: #4c51bf;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
 }
 
 .read-more:hover {
-  color: #3c366b;
+    color: #3c366b;
 }
 
 /* Авторизація (посилання) */
 .login-prompt {
-  color: #a0aec0;
-  font-style: italic;
-  text-decoration: underline;
+    color: #a0aec0;
+    font-style: italic;
+    text-decoration: underline;
 }
 
 .login-prompt:hover {
-  color: #718096;
+    color: #718096;
 }
 
 .post-author {
-  font-size: 0.9rem;
-  color: #718096;
-  margin: 0 0 0 0;
-  font-style: italic;
+    font-size: 0.9rem;
+    color: #718096;
+    margin: 0 0 0 0;
+    font-style: italic;
 }
 
 .admin-buttons {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
 .admin-button {
-  flex: 1 1 200px;
-  max-width: 220px;
-  aspect-ratio: 1 / 1;
-  background-color: #4c51bf;
-  color: white;
-  font-weight: 700;
-  font-size: 1.25rem;
-  text-align: center;
-  padding: 1rem;
-  border-radius: 16px;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgb(76 81 191 / 0.3);
+    flex: 1 1 200px;
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
+    background-color: #4c51bf;
+    color: white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 16px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgb(76 81 191 / 0.3);
 }
 
 .admin-button small {
-  font-weight: 400;
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
-  color: #d0d4ff;
+    font-weight: 400;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    color: #d0d4ff;
 }
 
 .admin-button:hover {
-  background-color: #373fc7;
-  box-shadow: 0 6px 12px rgb(55 63 199 / 0.5);
+    background-color: #373fc7;
+    box-shadow: 0 6px 12px rgb(55 63 199 / 0.5);
 }
 
 .category-list {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 2rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .category-list li {
 }
 
 .category-link {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border: 2px solid #4c51bf;
-  border-radius: 12px;
-  color: #4c51bf;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 2px solid #4c51bf;
+    border-radius: 12px;
+    color: #4c51bf;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .category-link:hover {
-  background-color: #4c51bf;
-  color: #fff;
+    background-color: #4c51bf;
+    color: #fff;
 }
 
 .form-container {
-  max-width: 500px;
-  margin-top: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+    max-width: 500px;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
 }
 
 .form-container p {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
-  color: #2d3748;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    color: #2d3748;
 }
 
 .form-container input,
 .form-container textarea,
 .form-container select {
-  padding: 0.5rem 0.75rem;
-  border: 2px solid #cbd5e0;
-  border-radius: 8px;
-  font-family: inherit;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+    padding: 0.5rem 0.75rem;
+    border: 2px solid #cbd5e0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
 }
 
 .form-container input:focus,
 .form-container textarea:focus,
 .form-container select:focus {
-  outline: none;
-  border-color: #4c51bf;
-  box-shadow: 0 0 5px #4c51bfaa;
+    outline: none;
+    border-color: #4c51bf;
+    box-shadow: 0 0 5px #4c51bfaa;
 }
 
 .btn-submit {
-  align-self: flex-start;
-  background-color: #4c51bf;
-  color: #fff;
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    align-self: flex-start;
+    background-color: #4c51bf;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .btn-submit:hover {
-  background-color: #373fc7;
+    background-color: #373fc7;
 }
 
 .confirm-text {
-  font-size: 1.1rem;
-  margin: 1rem 0 2rem 0;
-  color: #2d3748;
+    font-size: 1.1rem;
+    margin: 1rem 0 2rem 0;
+    color: #2d3748;
 }
 
 .confirm-form {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
 }
 
 .btn-delete {
-  background-color: #e53e3e; /* яскраво-червоний */
-  color: white;
-  font-weight: 700;
-  padding: 0.6rem 1.4rem;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    background-color: #e53e3e; /* яскраво-червоний */
+    color: white;
+    font-weight: 700;
+    padding: 0.6rem 1.4rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .btn-delete:hover {
-  background-color: #9b2c2c;
+    background-color: #9b2c2c;
 }
 
 .btn-cancel {
-  text-decoration: none;
-  color: #4c51bf;
-  font-weight: 600;
-  padding: 0.6rem 1rem;
-  border: 2px solid #4c51bf;
-  border-radius: 12px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+    color: #4c51bf;
+    font-weight: 600;
+    padding: 0.6rem 1rem;
+    border: 2px solid #4c51bf;
+    border-radius: 12px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-cancel:hover {
-  background-color: #4c51bf;
-  color: white;
+    background-color: #4c51bf;
+    color: white;
 }
 
 .post-detail {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 1rem 1.5rem;
-  background-color: #f7fafc; /* світлий фон */
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
-  color: #2d3748;
-  font-family: 'JetBrains Mono', monospace;
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1rem 1.5rem;
+    background-color: #f7fafc; /* світлий фон */
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    color: #2d3748;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 .post-title {
-  font-size: 2rem;
-  margin-bottom: 0.25rem;
-  color: #2c5282;
-  font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+    color: #2c5282;
+    font-weight: 700;
 }
 
 .post-meta {
-  font-size: 0.9rem;
-  color: #718096;
-  margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+    color: #718096;
+    margin-bottom: 1.25rem;
 }
 
 .post-content {
-  line-height: 1.6;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  white-space: pre-wrap;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    white-space: pre-wrap;
 }
 
 .admin-buttons {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .btn-edit, .btn-delete {
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-  user-select: none;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    user-select: none;
 }
 
 .btn-edit {
-  background-color: #4c51bf;
-  color: white;
+    background-color: #4c51bf;
+    color: white;
 }
 
 .btn-edit:hover {
-  background-color: #373fc7;
+    background-color: #373fc7;
 }
 
 .btn-delete {
-  background-color: #e53e3e;
-  color: white;
+    background-color: #e53e3e;
+    color: white;
 }
 
 .btn-delete:hover {
-  background-color: #9b2c2c;
+    background-color: #9b2c2c;
 }
 
 .back-link a {
-  color: #4c51bf;
-  font-weight: 600;
-  text-decoration: none;
-  transition: text-decoration 0.3s ease;
+    color: #4c51bf;
+    font-weight: 600;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
 }
 
 .back-link a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .logout-message {
-  text-align: center;
-  margin: 5rem 0;
+    text-align: center;
+    margin: 5rem 0;
 }
 
 .logout-title {
-  color: #2c5282; /* синій акцент */
-  font-weight: 700;
-  margin-bottom: 2rem;
-  font-size: 1.8rem;
-  font-family: 'JetBrains Mono', monospace;
+    color: #2c5282; /* синій акцент */
+    font-weight: 700;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 .btn-login-again {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  border: 2px solid #2c5282;
-  border-radius: 12px;
-  color: #2c5282;
-  font-weight: 700;
-  text-decoration: none;
-  font-family: 'JetBrains Mono', monospace;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  user-select: none;
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border: 2px solid #2c5282;
+    border-radius: 12px;
+    color: #2c5282;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
 }
 
 .btn-login-again:hover {
-  background-color: #2c5282;
-  color: white;
-  box-shadow: 0 4px 12px rgba(44, 82, 130, 0.5);
+    background-color: #2c5282;
+    color: white;
+    box-shadow: 0 4px 12px rgba(44, 82, 130, 0.5);
 }
 
 .login-container {
-  max-width: 400px;
-  margin: 5rem auto 0;
-  padding: 2rem 2.5rem;
-  background: #f7fafc;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  font-family: 'JetBrains Mono', monospace;
-  color: #2d3748;
+    max-width: 400px;
+    margin: 5rem auto 0;
+    padding: 2rem 2.5rem;
+    background: #f7fafc;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'JetBrains Mono', monospace;
+    color: #2d3748;
 }
 
 .login-title {
-  text-align: center;
-  color: #2c5282;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
+    text-align: center;
+    color: #2c5282;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
 }
 
 .form-error {
-  background-color: #fed7d7;
-  color: #9b2c2c;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  margin-bottom: 1.25rem;
-  font-weight: 600;
-  text-align: center;
+    background-color: #fed7d7;
+    color: #9b2c2c;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+    text-align: center;
 }
 
 .login-form p {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .login-form label {
-  display: block;
-  margin-bottom: 0.3rem;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #4a5568;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #4a5568;
 }
 
 .login-form input[type="text"],
 .login-form input[type="password"],
 .login-form input[type="email"] {
-  width: 100%;
-  padding: 0.55rem 0.75rem;
-  border: 2px solid #cbd5e0;
-  border-radius: 12px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1rem;
-  transition: border-color 0.25s ease;
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    border: 2px solid #cbd5e0;
+    border-radius: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    transition: border-color 0.25s ease;
 }
 
 .login-form input[type="text"]:focus,
 .login-form input[type="password"]:focus,
 .login-form input[type="email"]:focus {
-  outline: none;
-  border-color: #2c5282;
-  box-shadow: 0 0 8px rgba(44, 82, 130, 0.5);
+    outline: none;
+    border-color: #2c5282;
+    box-shadow: 0 0 8px rgba(44, 82, 130, 0.5);
 }
 
 .btn-submit {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #2c5282;
-  border: none;
-  border-radius: 12px;
-  color: white;
-  font-weight: 700;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  user-select: none;
-  margin-top: 0.75rem;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #2c5282;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    margin-top: 0.75rem;
 }
 
 .btn-submit:hover {
-  background-color: #1a365d;
+    background-color: #1a365d;
 }
 
 .logout-message {
-  max-width: 400px;
-  margin: 6rem auto;
-  padding: 2.5rem 2rem;
-  background-color: #f0f4f8;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(44, 82, 130, 0.15);
-  text-align: center;
-  font-family: 'JetBrains Mono', monospace;
-  color: #2c3e50;
+    max-width: 400px;
+    margin: 6rem auto;
+    padding: 2.5rem 2rem;
+    background-color: #f0f4f8;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(44, 82, 130, 0.15);
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    color: #2c3e50;
 }
 
 .logout-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  color: #2c5282;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #2c5282;
 }
 
 .btn-login-again {
-  display: inline-block;
-  padding: 0.75rem 2.25rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #2c5282;
-  border: 2px solid #2c5282;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  user-select: none;
+    display: inline-block;
+    padding: 0.75rem 2.25rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2c5282;
+    border: 2px solid #2c5282;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
 }
 
 .btn-login-again:hover,
 .btn-login-again:focus {
-  background-color: #2c5282;
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(44, 82, 130, 0.4);
-  outline: none;
+    background-color: #2c5282;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(44, 82, 130, 0.4);
+    outline: none;
 }
 
 .post-meta {
-  font-size: 0.9rem;
-  color: #666;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+    font-size: 0.9rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
 .post-meta strong {
-  color: #333;
+    color: #333;
 }
 
 .like-count {
-  font-weight: 600;
-  user-select: none;
+    font-weight: 600;
+    user-select: none;
 }
 
 .like-button {
-  transition: transform 0.15s ease-in-out;
+    transition: transform 0.15s ease-in-out;
 }
 
 .like-button:hover {
-  transform: scale(1.2);
-  color: #e0245e;
+    transform: scale(1.2);
+    color: #e0245e;
 }
 
 .auth-container {
-  max-width: 400px;
-  margin: 3rem auto;
-  padding: 1.5rem;
-  background-color: #f5f7fa; /* світлий фон, нейтральний */
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 3rem auto;
+    padding: 1.5rem;
+    background-color: #f5f7fa; /* світлий фон, нейтральний */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .auth-box {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .auth-title {
-  font-weight: 600;
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-  color: #222;
-  text-align: center;
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #222;
+    text-align: center;
 }
 
 .auth-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .form-group label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 0.3rem;
-  color: #444;
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    color: #444;
 }
 
 .form-group input {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline-offset: 2px;
-  transition: border-color 0.2s ease-in-out;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline-offset: 2px;
+    transition: border-color 0.2s ease-in-out;
 }
 
 .form-group input:focus {
-  border-color: #3a86ff; /* яскравий акцент */
-  outline: none;
+    border-color: #3a86ff; /* яскравий акцент */
+    outline: none;
 }
 
 .error-msg {
-  color: #d32f2f;
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
+    color: #d32f2f;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
 }
 
 .btn {
-  cursor: pointer;
-  background-color: #3a86ff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-weight: 600;
-  padding: 0.6rem 1rem;
-  font-size: 1.1rem;
-  transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+    background-color: #3a86ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    padding: 0.6rem 1rem;
+    font-size: 1.1rem;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .btn:hover {
-  background-color: #265cbc;
+    background-color: #265cbc;
 }
 
 .auth-footer-text {
-  margin-top: 1.25rem;
-  font-size: 0.9rem;
-  text-align: center;
-  color: #555;
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #555;
 }
 
 .auth-link {
-  color: #3a86ff;
-  font-weight: 600;
-  text-decoration: none;
-  margin-left: 0.3rem;
-  transition: color 0.2s ease-in-out;
+    color: #3a86ff;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 0.3rem;
+    transition: color 0.2s ease-in-out;
 }
 
 .auth-link:hover {
-  color: #265cbc;
-  text-decoration: underline;
+    color: #265cbc;
+    text-decoration: underline;
+}
+
+/* Обгортка сторінки авторів */
+.tractus-authors-wrapper {
+    max-width: 900px;
+    margin: 3rem auto 4rem auto;
+    padding: 0 1rem;
+    font-family: 'Inter', sans-serif;
+    color: #2d3748; /* темно-сірий */
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(76, 81, 191, 0.1);
+}
+
+/* Заголовок сторінки */
+.tractus-authors-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #4c51bf; /* фіолетовий акцент */
+    padding-bottom: 0.3rem;
+    color: #4c51bf;
+}
+
+/* Опис під заголовком */
+.tractus-authors-desc {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #4a5568; /* сірий */
+    line-height: 1.5;
+}
+
+/* Список авторів - секція */
+.tractus-authors-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* Картка автора */
+.tractus-author-card {
+    background-color: #f7fafc; /* світлий фон */
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 1px 6px rgba(76, 81, 191, 0.15);
+    transition: box-shadow 0.3s ease;
+}
+
+.tractus-author-card:hover {
+    box-shadow: 0 4px 14px rgba(76, 81, 191, 0.25);
+}
+
+/* Ім'я автора */
+.tractus-author-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #3c366b;
+}
+
+/* Текст опису автора */
+.tractus-author-text {
+    font-size: 1rem;
+    line-height: 1.55;
+    color: #4a5568;
+    margin-bottom: 0.8rem;
+}
+
+/* Мобільна адаптація */
+@media (max-width: 650px) {
+    .tractus-authors-wrapper {
+        margin: 2rem 1rem 3rem 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .tractus-author-card {
+        padding: 1.2rem 1.4rem;
+    }
 }

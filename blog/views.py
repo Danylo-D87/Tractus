@@ -47,6 +47,10 @@ def popular_posts(request):
     return render(request, "popular_posts.html", {"posts": posts})
 
 
+def about_authors(request):
+    return render(request, "about_authors.html")
+
+
 class UserCreateView(generic.CreateView):
     form_class = CustomUserCreationForm
     template_name = "registration/register.html"
