@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="page-title">About — {{ current_category }}</h1>
+
+  <nav>
+    <ul class="category-filter">
+      <li>
+        <a href="{% url 'blog:posts-list' %}"
+           class="{% if not current_category or current_category == 'Всі категорії' %}active{% endif %}">Всі</a>
+      </li>
+      {% for category in categories %}
+        <li>
+          <a href="{% url 'blog:posts-by-category' category_name=category.name %}"
+             class="{% if current_category == category.name %}active{% endif %}">
+            {{ category.name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  {% if posts %}
+    <ul class="post-list">
+      {% for post in posts %}
+        <li class="post-item">
+          <h3 class="post-title">{{ post.title }}</h3>
+          <p class="post-author">Автор: {{ post.author.username }}</p>
+          {% if user.is_authenticated %}
+            <p class="post-excerpt">{{ post.content|truncatewords:30 }}</p>
+            <a href="{% url 'blog:post-details' post.id %}" class="read-more">Читати повністю</a>
+          {% else %}
+            <p><a href="{% url 'login' %}" class="login-prompt">Авторизуйтеся для перегляду</a></p>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Поки що немає постів у цій категорії.</p>
+  {% endif %}
+{% endblock %}

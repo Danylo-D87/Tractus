@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Увійти</h2>
-<{% if form.errors %}
-    <p style="color: red">Invalid credentials</p>
+<div class="mx-auto mt-5" style="max-width: 400px;">
+  <h2 class="text-info mb-4 text-center">Увійти</h2>
+
+  {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+      Невірний логін або пароль.
+    </div>
   {% endif %}
 
-
-  <form method="post" action="{% url 'login' %}">
+  <form method="post" action="{% url 'login' %}" novalidate>
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Submit">
+
+    <button type="submit" class="btn btn-info btn-block">Увійти</button>
   </form>
+</div>
 {% endblock %}

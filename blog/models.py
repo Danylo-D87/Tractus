@@ -13,13 +13,6 @@ class Category(models.Model):
         return self.name
 
 
-class Tag(models.Model):
-    name = models.CharField(max_length=255, unique=True)
-
-    def __str__(self):
-        return self.name
-
-
 class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
@@ -27,13 +20,15 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="posts")
-    tags = models.ManyToManyField(Tag, related_name="posts")
 
     class Meta:
         ordering = ["-created_at"]
 
     def __str__(self):
         return self.title
+
+    def total_likes(self):
+        return self.likes.count()
 
 
 class Like(models.Model):

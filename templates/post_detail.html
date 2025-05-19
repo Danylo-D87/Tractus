@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article class="post-detail">
+    <h1 class="post-title">{{ post.title }}</h1>
+    <p class="post-meta">
+      Автор: <span class="post-author">{{ post.author }}</span> |
+      Дата: <time datetime="{{ post.created_at|date:"Y-m-d\TH:i:s" }}">{{ post.created_at|date:"d M Y H:i" }}</time>
+    </p>
+    <div class="post-content">
+      {{ post.content|linebreaks }}
+    </div>
+
+    {% if user.is_staff or user.is_superuser %}
+      <div class="admin-buttons">
+        <a href="{% url 'blog:post-edit' post.pk %}" class="btn-edit">Редагувати</a>
+        <a href="{% url 'blog:post-delete' post.pk %}" class="btn-delete" onclick="return confirm('Ви впевнені, що хочете видалити цей пост?');">Видалити</a>
+      </div>
+    {% endif %}
+
+    <p class="back-link"><a href="{% url 'blog:posts-list' %}">← Повернутись до списку постів</a></p>
+  </article>
+{% endblock %}

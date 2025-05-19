@@ -1,9 +1,495 @@
-header {
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 20px;
-        background-color: #222;
-        color: #fff;
-        align-items: center;
-        font-family: Arial, sans-serif;
-    }
+/* Базові стилі */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb;
+  color: #1a202c;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Header */
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 1rem 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.logo a {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #4c51bf;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.logo a:hover {
+  color: #3c366b;
+}
+
+.nav {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.nav-link {
+  color: #4a5568;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover:not(.disabled) {
+  background-color: #e0e7ff;
+  color: #434190;
+}
+
+.nav-link.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Кнопка у формі виходу */
+.logout-form {
+  margin: 0;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.btn-link:hover {
+  color: #434190;
+  background-color: transparent;
+}
+
+/* Контент */
+.content-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Кнопка Адмін */
+.admin-fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4c51bf;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(76,81,191,0.4);
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.admin-fab:hover {
+  background-color: #3c366b;
+}
+
+/* Мобільна адаптація */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .content-container {
+    padding: 0 0.5rem;
+  }
+}
+
+/* Заголовки сторінок */
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #2d3748;
+  border-bottom: 2px solid #4c51bf;
+  padding-bottom: 0.25rem;
+}
+
+/* Список категорій */
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.category-list li {
+}
+
+.category-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #e0e7ff;
+  color: #434190;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.category-link:hover {
+  background-color: #c3cafe;
+}
+
+/* Фільтр категорій (у post_list) */
+.category-filter {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.category-filter li {
+}
+
+.category-filter a {
+  text-decoration: none;
+  color: #4a5568;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+}
+
+.category-filter a:hover {
+  background-color: #e0e7ff;
+  color: #434190;
+}
+
+.category-filter a.active {
+  background-color: #4c51bf;
+  color: white;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Список постів */
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.post-item {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.post-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  color: #2d3748;
+}
+
+.post-excerpt {
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.read-more {
+  color: #4c51bf;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.read-more:hover {
+  color: #3c366b;
+}
+
+/* Авторизація (посилання) */
+.login-prompt {
+  color: #a0aec0;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.login-prompt:hover {
+  color: #718096;
+}
+
+.post-author {
+  font-size: 0.9rem;
+  color: #718096;
+  margin: -0.3rem 0 0.8rem 0;
+  font-style: italic;
+}
+
+.admin-buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.admin-button {
+  flex: 1 1 200px;
+  max-width: 220px;
+  aspect-ratio: 1 / 1;
+  background-color: #4c51bf;
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 16px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgb(76 81 191 / 0.3);
+}
+
+.admin-button small {
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  color: #d0d4ff;
+}
+
+.admin-button:hover {
+  background-color: #373fc7;
+  box-shadow: 0 6px 12px rgb(55 63 199 / 0.5);
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.category-list li {
+}
+
+.category-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 2px solid #4c51bf;
+  border-radius: 12px;
+  color: #4c51bf;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.category-link:hover {
+  background-color: #4c51bf;
+  color: #fff;
+}
+
+.form-container {
+  max-width: 500px;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-container p {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.form-container input,
+.form-container textarea,
+.form-container select {
+  padding: 0.5rem 0.75rem;
+  border: 2px solid #cbd5e0;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-container input:focus,
+.form-container textarea:focus,
+.form-container select:focus {
+  outline: none;
+  border-color: #4c51bf;
+  box-shadow: 0 0 5px #4c51bfaa;
+}
+
+.btn-submit {
+  align-self: flex-start;
+  background-color: #4c51bf;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #373fc7;
+}
+
+.confirm-text {
+  font-size: 1.1rem;
+  margin: 1rem 0 2rem 0;
+  color: #2d3748;
+}
+
+.confirm-form {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.btn-delete {
+  background-color: #e53e3e; /* яскраво-червоний */
+  color: white;
+  font-weight: 700;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-delete:hover {
+  background-color: #9b2c2c;
+}
+
+.btn-cancel {
+  text-decoration: none;
+  color: #4c51bf;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border: 2px solid #4c51bf;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #4c51bf;
+  color: white;
+}
+
+.post-detail {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem 1.5rem;
+  background-color: #f7fafc; /* світлий фон */
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  color: #2d3748;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.post-title {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+  color: #2c5282;
+  font-weight: 700;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 1.25rem;
+}
+
+.post-content {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  white-space: pre-wrap;
+}
+
+.admin-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-edit, .btn-delete {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.btn-edit {
+  background-color: #4c51bf;
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #373fc7;
+}
+
+.btn-delete {
+  background-color: #e53e3e;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #9b2c2c;
+}
+
+.back-link a {
+  color: #4c51bf;
+  font-weight: 600;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}
+

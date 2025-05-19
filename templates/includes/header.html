@@ -1,16 +1,20 @@
-<header>
-  <div>Tractus</div>
-  <nav>
-    <a href="">category</a>
-    {% if user.is_authenticated %}
-      <form method="post" action="{% url 'logout' %}" style="display:inline;">
-        {% csrf_token %}
-        <button type="submit" style="background:none; border:none; padding:0; cursor:pointer; color:blue; text-decoration:underline;">
-          Вийти
-        </button>
-      </form>
-    {% else %}
-      <a href="{% url 'login' %}">Увійти</a>
-    {% endif %}
-  </nav>
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <a href="{% url 'blog:index' %}">Tractus</a>
+    </div>
+    <nav class="nav">
+      <a href="{% url 'blog:category-list' %}" class="nav-link">Категорії</a>
+      <span class="nav-link disabled" title="Поки недоступно">Автори</span>
+      <span class="nav-link disabled" title="Поки недоступно">Популярне</span>
+      {% if user.is_authenticated %}
+        <form method="post" action="{% url 'logout' %}" class="logout-form">
+          {% csrf_token %}
+          <button type="submit" class="nav-link btn-link">Вийти</button>
+        </form>
+      {% else %}
+        <a href="{% url 'login' %}" class="nav-link">Увійти</a>
+      {% endif %}
+    </nav>
+  </div>
 </header>
