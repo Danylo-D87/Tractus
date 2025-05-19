@@ -7,7 +7,11 @@ from django.shortcuts import render, get_object_or_404
 from django.db.models import Count
 
 
-from blog.forms import PostForm, CategoryForm
+from blog.forms import (
+    PostForm,
+    CategoryForm,
+    CustomUserCreationForm,
+)
 from blog.models import Category, Post, Like, User
 
 
@@ -37,6 +41,11 @@ def toggle_like_api(request, post_id):
         })
     return JsonResponse({"error": "Invalid method"}, status=400)
 
+
+class UserCreateView(generic.CreateView):
+    form_class = CustomUserCreationForm
+    template_name = "registration/register.html"
+    success_url = reverse_lazy("login")
 
 class CategoryListView(generic.ListView):
     model = Category
@@ -88,7 +97,6 @@ class PostsListView(generic.ListView):
         context["current_category"] = self.kwargs.get("category_name", "Всі категорії")
         context["user_is_authenticated"] = self.request.user.is_authenticated
         return context
-
 
 
 class PostsDetailView(generic.DetailView):

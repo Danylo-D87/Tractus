@@ -1,5 +1,13 @@
 from django import forms
-from .models import Post, Category
+from django.contrib.auth.forms import UserCreationForm
+
+from .models import Post, Category, User
+
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ["username"]
 
 
 class PostForm(forms.ModelForm):

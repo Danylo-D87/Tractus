@@ -4,7 +4,7 @@
 {% block content %}
 <div class="auth-container">
   <div class="auth-box">
-    <h2 class="auth-title">Увійти</h2>
+    <h2 class="auth-title">Створити акаунт</h2>
     <form method="post" class="auth-form">
       {% csrf_token %}
       {{ form.non_field_errors }}
@@ -18,13 +18,12 @@
         </div>
       {% endfor %}
       <button type="submit" class="btn btn-primary">
-        Увійти
+        Зареєструватись
       </button>
     </form>
-
     <p class="auth-footer-text">
-      Немає акаунту?
-      <a href="{% url 'blog:user-create' %}">Зареєструватись тут</a>
+      Вже маєш акаунт?
+      <a href="{% url 'login' %}" class="auth-link">Увійти</a>
     </p>
   </div>
 </div>
