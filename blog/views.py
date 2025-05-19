@@ -42,6 +42,11 @@ def toggle_like_api(request, post_id):
     return JsonResponse({"error": "Invalid method"}, status=400)
 
 
+def popular_posts(request):
+    posts = Post.objects.annotate(num_likes=Count("likes")).order_by("-num_likes", "-created_at")
+    return render(request, "popular_posts.html", {"posts": posts})
+
+
 class UserCreateView(generic.CreateView):
     form_class = CustomUserCreationForm
     template_name = "registration/register.html"

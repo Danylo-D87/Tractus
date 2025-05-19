@@ -4,6 +4,7 @@ from .views import (
     index,
     admin_tools_view,
     toggle_like_api,
+    popular_posts,
     UserCreateView,
     CategoryListView,
     CategoryDeleteView,
@@ -23,6 +24,7 @@ urlpatterns = [
     path("admin-tools/", admin_tools_view, name="admin-tools"),
     path("posts/<int:post_id>/toggle-like/", toggle_like_api, name="toggle_like_api"),
     path("user/register", UserCreateView.as_view(), name="user-create"),
+    path("popular/", popular_posts, name="popular_posts"),
 
     # Categories
     path("categories/", CategoryListView.as_view(), name="category-list"),

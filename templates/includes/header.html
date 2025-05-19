@@ -6,7 +6,7 @@
     <nav class="nav">
       <a href="{% url 'blog:category-list' %}" class="nav-link">Категорії</a>
       <span class="nav-link disabled" title="Поки недоступно">Автори</span>
-      <span class="nav-link disabled" title="Поки недоступно">Популярне</span>
+      <a href="{% url 'blog:popular_posts' %}" class="nav-link">Популярне</a>
       {% if user.is_authenticated %}
         <form method="post" action="{% url 'logout' %}" class="logout-form">
           {% csrf_token %}
