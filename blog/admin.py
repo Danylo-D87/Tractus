@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import User, Category, Tag, Post, Like
+from .models import User, Category, Post, Like
 
 
 admin.site.site_header = "Tractus Admin"
@@ -21,22 +21,15 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ("name",)
 
 
-@admin.register(Tag)
-class TagAdmin(admin.ModelAdmin):
-    list_display = ("name",)
-    search_fields = ("name",)
-
-
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'category', 'created_at', 'updated_at')
-    search_fields = ('title', 'content', 'author__username')
-    list_filter = ('category', 'created_at', 'updated_at')
-    raw_id_fields = ('author',)
-    filter_horizontal = ('tags',)
+    list_display = ("title", "author", "category", "created_at", "updated_at")
+    search_fields = ("title", "content", "author__username")
+    list_filter = ("category", "created_at", "updated_at")
+    raw_id_fields = ("author",)
 
 
 @admin.register(Like)
 class LikeAdmin(admin.ModelAdmin):
-    list_display = ('post', 'user')
-    search_fields = ('post__title', 'user__username')
+    list_display = ("post", "user")
+    search_fields = ("post__title", "user__username")
