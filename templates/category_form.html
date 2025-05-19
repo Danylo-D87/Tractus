@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="page-title">Категорії</h1>
+
+  {% if categories %}
+    <ul class="category-list">
+      {% for category in categories %}
+        <li>
+          <a href="{% url 'blog:posts-by-category' category_name=category.name %}" class="category-link">
+            {{ category.name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Категорій немає</p>
+  {% endif %}
+{% endblock %}

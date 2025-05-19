@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="auth-container">
+  <div class="auth-box">
+    <h2 class="auth-title">Увійти</h2>
+    <form method="post" class="auth-form">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      {% for field in form %}
+        <div class="form-group">
+          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+          {% if field.errors %}
+            <p class="error-msg">{{ field.errors|striptags }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">
+        Увійти
+      </button>
+    </form>
+
+    <p class="auth-footer-text">
+      Немає акаунту?
+      <a href="{% url 'blog:user-create' %}">Зареєструватись тут</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="logout-message">
+  <h2 class="logout-title">Ви вийшли з акаунту.</h2>
+  <a href="{% url 'login' %}" class="btn-login-again">Увійти знову</a>
+</div>
+{% endblock %}

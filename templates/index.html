@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="tractus-section container">
+  <div class="tractus-text-wrapper">
+    <h2 class="tractus-title">Tractus</h2>
+    <p class="tractus-description">
+      Tractus — це латинське слово, яке буквально означає «шлях» або «рух». Наша мета допомогти вам та полегшити ваш шлях.
+    </p>
+    <p class="tractus-description">
+      Компанія Tractus народилась з ідеї створити інноваційні технології, що спрощують життя та бізнес. Ми поєднуємо досвід та прогресивний підхід, щоб відкривати нові можливості для кожного клієнта.
+    </p>
+    <p class="tractus-description">
+      Наша історія — це шлях від невеликого стартапу до впливового гравця на ринку IT, що постійно рухається вперед, вдосконалюється і допомагає вам йти в ногу з часом.
+    </p>
+  </div>
+  <div class="tractus-image-wrapper">
+    <img src="{% static 'log.webp' %}" alt="Tractus company image" />
+  </div>
+</section>
+
+
+{% endblock %}

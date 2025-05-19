@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tractus</title>
+  {% load static %}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  <link rel="icon" href="{% static 'logo_favi.svg' %}" type="image/webp" />
+</head>
+<body>
+
+  {% block header %}
+    {% include "includes/header.html" %}
+  {% endblock %}
+
+  <main class="content-container">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% if user.is_staff or user.is_superuser %}
+    <a href="{% url 'blog:admin-tools' %}" class="admin-fab">Адмін</a>
+  {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="page-title">Підтвердження видалення</h1>
+  <p class="confirm-text">Ви впевнені, що хочете видалити <strong>"{{ object }}"</strong>?</p>
+
+  <form method="post" class="confirm-form">
+    {% csrf_token %}
+    <button type="submit" class="btn-delete">Так, видалити</button>
+    <a href="{% url 'blog:posts-list' %}" class="btn-cancel">Скасувати</a>
+  </form>
+{% endblock %}

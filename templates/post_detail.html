@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article class="post-detail" data-post-id="{{ post.id }}">
+    <h1 class="post-title">{{ post.title }}</h1>
+    <p class="post-meta" style="display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: #888;">
+      Автор: <strong class="post-author">{{ post.author }}</strong>
+      <time datetime="{{ post.created_at|date:"Y-m-d\TH:i:s" }}">{{ post.created_at|date:"d M Y H:i" }}</time>
+
+      {% if user.is_authenticated %}
+        <button class="like-button" type="button"
+                style="margin-left: auto; background: none; border: none; cursor: pointer; font-size: 1.4rem; display: flex; align-items: center; gap: 6px; color: inherit; padding: 0;">
+          <span>🖤</span>
+          <span class="like-count">{{ post.likes_count|default:"0" }}</span>
+        </button>
+      {% else %}
+        <span style="margin-left: auto; display: flex; align-items: center; gap: 6px; color: #aaa;">
+          🖤 <span class="like-count">{{ post.likes_count|default:"0" }}</span>
+        </span>
+      {% endif %}
+    </p>
+
+    <div class="post-content">
+      {{ post.content|linebreaks }}
+    </div>
+
+    {% if user.is_staff or user.is_superuser %}
+      <div class="admin-buttons">
+        <a href="{% url 'blog:post-edit' post.pk %}" class="btn-edit">Редагувати</a>
+        <a href="{% url 'blog:post-delete' post.pk %}" class="btn-delete"
+           onclick="return confirm('Ви впевнені, що хочете видалити цей пост?');">Видалити</a>
+      </div>
+    {% endif %}
+
+    <p class="back-link"><a href="{% url 'blog:posts-list' %}">← Повернутись до списку постів</a></p>
+  </article>
+
+<script>
+document.querySelectorAll('.like-button').forEach(button => {
+  button.addEventListener('click', function() {
+    const postItem = this.closest('.post-detail');
+    const postId = postItem.dataset.postId;
+
+    fetch(`/posts/${postId}/toggle-like/`, {
+      method: 'POST',
+      headers: {
+        'X-CSRFToken': getCookie('csrftoken'),
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({})
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (!data.error) {
+        const likeCountElem = postItem.querySelector('.like-count');
+        likeCountElem.textContent = data.total_likes;
+        // Іконка лишається 🖤, не змінюємо
+      }
+    })
+    .catch(error => console.error('Error:', error));
+  });
+});
+
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let i=0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+</script>
+
+{% endblock %}

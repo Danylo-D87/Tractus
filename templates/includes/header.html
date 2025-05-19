@@ -1,0 +1,20 @@
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <a href="{% url 'blog:index' %}">Tractus</a>
+    </div>
+    <nav class="nav">
+      <a href="{% url 'blog:category-list' %}" class="nav-link">Категорії</a>
+      <a href="{% url 'blog:about-authors' %}" class="nav-link">Автори</a>
+      <a href="{% url 'blog:popular_posts' %}" class="nav-link">Популярне</a>
+      {% if user.is_authenticated %}
+        <form method="post" action="{% url 'logout' %}" class="logout-form">
+          {% csrf_token %}
+          <button type="submit" class="nav-link btn-link">Вийти</button>
+        </form>
+      {% else %}
+        <a href="{% url 'login' %}" class="nav-link">Увійти</a>
+      {% endif %}
+    </nav>
+  </div>
+</header>
