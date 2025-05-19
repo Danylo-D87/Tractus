@@ -1,10 +1,14 @@
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render, get_object_or_404
+from django.db.models import Count
+
 
 from blog.forms import PostForm, CategoryForm
-from blog.models import Category, Post
+from blog.models import Category, Post, Like, User
 
 
 def index(request):
@@ -14,6 +18,24 @@ def index(request):
 @staff_member_required
 def admin_tools_view(request):
     return render(request, "admin_tools.html")
+
+
+@login_required
+def toggle_like_api(request, post_id):
+    if request.method == "POST":
+        post = get_object_or_404(Post, id=post_id)
+        like_qs = Like.objects.filter(post=post, user=request.user)
+        if like_qs.exists():
+            like_qs.delete()
+            liked = False
+        else:
+            Like.objects.create(post=post, user=request.user)
+            liked = True
+        return JsonResponse({
+            "liked": liked,
+            "total_likes": post.likes.count()
+        })
+    return JsonResponse({"error": "Invalid method"}, status=400)
 
 
 class CategoryListView(generic.ListView):
@@ -49,9 +71,11 @@ class PostsListView(generic.ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        queryset = Post.objects.select_related("category").order_by("-created_at")
-        category_name = self.kwargs.get("category_name")
+        queryset = Post.objects.select_related("category", "author") \
+                               .annotate(likes_count=Count("likes")) \
+                               .order_by("-created_at")
 
+        category_name = self.kwargs.get("category_name")
         if category_name:
             category = get_object_or_404(Category, name=category_name)
             queryset = queryset.filter(category=category)
@@ -66,9 +90,13 @@ class PostsListView(generic.ListView):
         return context
 
 
+
 class PostsDetailView(generic.DetailView):
     model = Post
     template_name = "post_detail.html"
+
+    def get_queryset(self):
+        return Post.objects.annotate(likes_count=Count('likes')).select_related('author', 'category')
 
 
 class PostCreateView(generic.CreateView):
