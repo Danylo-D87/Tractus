@@ -45,7 +45,7 @@
           {% if user.is_authenticated %}
             <a href="{% url 'blog:post-details' post.id %}" class="read-more">Читати повністю</a>
           {% else %}
-            <a href="{% url 'login' post.id %}" class="read-more">Авторизуйтесь щоб читати повністю</a>
+            <a href="{% url 'login'  %}" class="read-more">Авторизуйтесь щоб читати повністю</a>
           {% endif %}
         </li>
       {% endfor %}
