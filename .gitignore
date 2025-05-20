@@ -1,3 +1,37 @@
-.idea
-.venv
-**__pycache__
+# IDE/Editor
+.idea/
+.vscode/
+
+# Віртуальне середовище
+.venv/
+venv/
+env/
+
+# Кеш Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Файли налаштувань середовища
+.env
+
+# Django
+db.sqlite3
+*.log
+*.pot
+*.pyc
+*.mo
+
+# Статичні та медіа файли (за бажанням)
+staticfiles/
+media/
+
+# Конфігурації, які можуть містити секрети
+*.secret
+*.key
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
