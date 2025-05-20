@@ -2,10 +2,11 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.urls import reverse_lazy
-from django.views import generic
+from django.utils.decorators import method_decorator
+from django.views import generic, View
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Count
-
+from django.views.generic import TemplateView, ListView
 
 from blog.forms import (
     PostForm,
@@ -15,18 +16,18 @@ from blog.forms import (
 from blog.models import Category, Post, Like, User
 
 
-def index(request):
-    return render(request, "index.html")
+class IndexView(TemplateView):
+    template_name = "index.html"
 
 
-@staff_member_required
-def admin_tools_view(request):
-    return render(request, "admin_tools.html")
+@method_decorator(staff_member_required, name="dispatch")
+class AdminToolsView(TemplateView):
+    template_name = "admin_tools.html"
 
 
-@login_required
-def toggle_like_api(request, post_id):
-    if request.method == "POST":
+@method_decorator(login_required, name="dispatch")
+class ToggleLikeView(View):
+    def post(self, request, post_id):
         post = get_object_or_404(Post, id=post_id)
         like_qs = Like.objects.filter(post=post, user=request.user)
         if like_qs.exists():
@@ -38,17 +39,22 @@ def toggle_like_api(request, post_id):
         return JsonResponse({
             "liked": liked,
             "total_likes": post.likes.count()
-        })
-    return JsonResponse({"error": "Invalid method"}, status=400)
+            })
 
 
-def popular_posts(request):
-    posts = Post.objects.annotate(num_likes=Count("likes")).order_by("-num_likes", "-created_at")
-    return render(request, "popular_posts.html", {"posts": posts})
+class PopularPostsView(ListView):
+    model = Post
+    template_name = "popular_posts.html"
+    context_object_name = "posts"
+
+    def get_queryset(self):
+        return Post.objects.annotate(
+            num_likes=Count("likes")
+        ).order_by("-num_likes", "-created_at")
 
 
-def about_authors(request):
-    return render(request, "about_authors.html")
+class AboutAuthorsView(TemplateView):
+    template_name = "about_authors.html"
 
 
 class UserCreateView(generic.CreateView):
