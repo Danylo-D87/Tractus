@@ -1,5 +1,6 @@
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
@@ -25,8 +26,7 @@ class AdminToolsView(TemplateView):
     template_name = "admin_tools.html"
 
 
-@method_decorator(login_required, name="dispatch")
-class ToggleLikeView(View):
+class ToggleLikeView(LoginRequiredMixin, View):
     def post(self, request, post_id):
         post = get_object_or_404(Post, id=post_id)
         like_qs = Like.objects.filter(post=post, user=request.user)
