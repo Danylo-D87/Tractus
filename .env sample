@@ -1,0 +1,6 @@
+postgresql://neondb_owner:npg_IAT62kGUnfqJ@ep-rapid-leaf-a2p2ie4r-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require
+POSTGRES_DB=<>
+POSTGRES_DB_PORT=<>
+POSTGRES_USER=<>
+POSTGRES_PASSWORD=<>
+POSTGRES_HOST=<>
